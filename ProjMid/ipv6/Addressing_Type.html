@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>INF680 Undergrad Project</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="../index.html" class="logo"></a>
+					<nav id="nav">
+						<a href="../index.html">Home</a>
+						<a href="tutorial.html">Tutorial</a>
+						<a href="../quiz.html">Quiz</a>
+						<a href="../citation.html">Citation</a>
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+		
+		<!--side navigation-->
+		<div id="sidenav">
+		  <a class="navBtn" href="tutorial.html">Welcome</a>
+		  <a class="navBtn" href="Overviews.html">Overviews</a>
+		  <a class="navBtn" href="Features.html">Features</a>
+		  <a class="navBtn" href="Addressing_Mode.html">Addressing Mode</a>
+		  <a class="navBtn active" href="Addressing_Type.html">Addressing Type</a>
+		  <a class="navBtn" href="Special_Addresses.html">Special Addresses</a>
+		  <a class="navBtn" href="Headers.html">Headers</a>
+		  <a class="navBtn" href="Communication.html">Communication</a>
+		  <a class="navBtn" href="Subnetting.html">Subnetting</a>
+		  <a class="navBtn" href="ipv4_to_ipv6.html">IPv4 To IPv6</a>
+		  <a class="navBtn" href="Mobility.html">Mobility</a>
+		  <a class="navBtn" href="Routing.html">Routing</a>
+		  <a class="navBtn" href="Summary.html">Summary</a>
+		</div>
+
+		<!-- Main -->
+			<section id="mainTutorial" >
+				<div class="inner">
+					<header class="major special">
+						<h1 style="text-align: center">IPv6 Tutorial - Address Type &amp; Format</h1>
+					</header><hr>
+					<h4 style="color:black;text-align: center">Hexadecimal Number System</h4>
+					<p>Before introducing IPv6 Address format, we shall look into Hexadecimal Number System. Hexadecimal is a positional number system that uses radix (base) of 16. To represent the values in readable format, this system uses 0-9 symbols to represent values from zero to nine and A-F to represent values from ten to fifteen. Every digit in Hexadecimal can represent values from 0 to 15.</p>
+					<img src="../images/Hexadecimal_conversion_table.jpg" alt="Conversion table" height="35%" width="35%" class="center"/><br>
+					<h4 style="color:black;text-align: center">Address Structure</h4>
+					<p>An IPv6 address is made of 128 bits divided into eight 16-bits blocks. Each block is then converted into 4-digit Hexadecimal numbers separated by colon symbols.<br>
+					For example, given below is a 128 bit IPv6 address represented in binary format and divided into eight 16-bits blocks:<br>
+						<span style="background-color:lightgrey">0010000000000001 0000000000000000 0011001000111000 1101111111100001<br>
+						0000000001100011 0000000000000000 0000000000000000 1111111011111011</span>
+					<br>
+					Each block is then converted into Hexadecimal and separated by ‘:’ symbol:
+						<br><span style="background-color:lightgrey">2001:0000:3238:DFE1:0063:0000:0000:FEFB</span><br>
+					Even after converting into Hexadecimal format, IPv6 address remains long. IPv6 provides some rules to shorten the address. The rules are as follows:
+					<br>
+					<strong>Rule.1:</strong> Discard leading Zero(es):
+					<br>
+					In Block 5, 0063, the leading two 0s can be omitted, such as (5th block):
+					<br>
+						<span style="background-color:lightgrey">2001:0000:3238:DFE1:63:0000:0000:FEFB</span>
+					<br>
+					<strong>Rule.2:</strong> If two of more blocks contain consecutive zeroes, omit them all and replace with double colon sign ::, such as (6th and 7th block):
+					<br>
+					<span style="background-color:lightgrey">2001:0000:3238:DFE1:63::FEFB</span>
+					<br>
+					Consecutive blocks of zeroes can be replaced only once by :: so if there are still blocks of zeroes in the address, they can be shrunk down to a single zero, such as (2nd block):
+					<br>
+						<span style="background-color:lightgrey">2001:0:3238:DFE1:63::FEFB</span>
+					<br>
+					<h4 style="color:black;text-align: center">Interface ID</h4>
+					IPv6 has three different types of Unicast Address scheme. The second half of the address (last 64 bits) is always used for Interface ID. The MAC address of a system is composed of 48-bits and represented in Hexadecimal. MAC addresses are considered to be uniquely assigned worldwide. Interface ID takes advantage of this uniqueness of MAC addresses. A host can auto-configure its Interface ID by using IEEE’s Extended Unique Identifier (EUI-64) format. First, a host divides its own MAC address into two 24-bits halves. Then 16-bit Hex value 0xFFFE is sandwiched into those two halves of MAC address, resulting in EUI-64 Interface ID.<br><img src="../images/v6_interface_id.jpg" alt="EUI-64 Interface ID" height="50%" width="50%" class="center"/>
+					
+					<h5 style="color:black;text-align: center">Conversion of EUI-64 ID into IPv6 Interface Identifier</h5>
+					To convert EUI-64 ID into IPv6 Interface Identifier, the most significant 7th bit of EUI-64 ID is complemented. For example:<br><img src="../images/eui_to_ipv6_id.png" alt="IPv6 Interface ID" height="50%" width="50%" class="center"/>
+					<hr style="color:black">
+					<h4 style="color:black;text-align: center">Global Unicast Address</h4>
+					This address type is equivalent to IPv4’s public address. Global Unicast addresses in IPv6 are globally identifiable and uniquely addressable.<br><img src="../images/global_unicast_address.jpg" alt="Global Unicast Address" height="80%" width="80%"/><br>
+					Global Routing Prefix: The most significant 48-bits are designated as Global Routing Prefix which is assigned to specific autonomous system. The three most significant bits of Global Routing Prefix is always set to 001.<br>
+
+					<h4 style="color:black;text-align: center">Link-Local Address</h4>
+					Auto-configured IPv6 address is known as Link-Local address. This address always starts with FE80. The first 16 bits of link-local address is always set to 1111 1110 1000 0000 (FE80). The next 48-bits are set to 0, thus:<br><img src="../images/link_local_address.jpg" alt="Link-Local Address" height="80%" width="80%"/><br>
+					Link-local addresses are used for communication among IPv6 hosts on a link (broadcast segment) only. These addresses are not routable, so a Router never forwards these addresses outside the link.<br>
+
+					<h4 style="color:black;text-align: center">Unique-Local Address</h4>
+					This type of IPv6 address is globally unique, but it should be used in local communication. The second half of this address contain Interface ID and the first half is divided among Prefix, Local Bit, Global ID and Subnet ID.<br><img src="../images/unique_local_address.jpg" alt="Unique Local Address" height="80%" width="80%"/><br>
+					
+					Prefix is always set to 1111 110. L bit, is set to 1 if the address is locally assigned. So far, the meaning of L bit to 0 is not defined. Therefore, Unique Local IPv6 address always starts with ‘FD’.
+					Scope of IPv6 Unicast Addresses:
+					<br><img src="../images/unicast_address_scope.jpg" alt="Unicast Address Scope" height="50%" width="50%" class="center"/><br>
+					The scope of Link-local address is limited to the segment. Unique Local Address are locally global, but are not routed over the Internet, limiting their scope to an organization’s boundary. Global Unicast addresses are globally unique and recognizable. They shall make the essence of Internet v2 addressing.
+					</p>
+					<hr>
+					<div id="nextAndPrev">
+						<a href="Addressing_Mode.html" class="previous">&laquo; Previous</a>
+						<a href="Special_Addresses.html" class="next">Next &raquo;</a>
+					</div>
+				</div><!--end of inner class -->
+				
+			</section>
+
+		<!-- Footer -->
+			<section id="ipv6TutorialFooter" >
+					<div class="copyright" style="font-size:8px">
+						&copy; Design by: Untitled Design; Informations from this webpage are from <a href="https://www.tutorialspoint.com/ipv6/index.htm"  style="color:black">www.tutorialspoint.com</a>
+					</div>
+			</section>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/activebutton.js"></script>
+
+	</body>
+</html>

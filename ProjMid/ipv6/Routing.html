@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>INF680 Undergrad Project</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="../index.html" class="logo"></a>
+					<nav id="nav">
+						<a href="../index.html">Home</a>
+						<a href="tutorial.html">Tutorial</a>
+						<a href="../quiz.html">Quiz</a>
+						<a href="../citation.html">Citation</a>
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+		
+		<!--side navigation-->
+		<div id="sidenav">
+		  <a class="navBtn" href="tutorial.html">Welcome</a>
+		  <a class="navBtn" href="Overviews.html">Overviews</a>
+		  <a class="navBtn" href="Features.html">Features</a>
+		  <a class="navBtn" href="Addressing_Mode.html">Addressing Mode</a>
+		  <a class="navBtn" href="Addressing_Type.html">Addressing Type</a>
+		  <a class="navBtn" href="Special_Addresses.html">Special Addresses</a>
+		  <a class="navBtn" href="Headers.html">Headers</a>
+		  <a class="navBtn" href="Communication.html">Communication</a>
+		  <a class="navBtn" href="Subnetting.html">Subnetting</a>
+		  <a class="navBtn" href="ipv4_to_ipv6.html">IPv4 To IPv6</a>
+		  <a class="navBtn" href="Mobility.html">Mobility</a>
+		  <a class="navBtn active" href="Routing.html">Routing</a>
+		  <a class="navBtn" href="Summary.html">Summary</a>
+		</div>
+
+		<!-- Main -->
+			<section id="mainTutorial" >
+				<div class="inner">
+					<header class="major special">
+						<h1 style="text-align: center">IPv6 - Routing</h1>
+					</header><hr>
+					<p>
+					Routing concepts remain same in case of IPv6 but almost all routing protocols have been redefined accordingly. We discussed earlier, how a host speaks to its gateway. Routing is a process to forward routable data choosing the best route among several available routes or path to the destination. A router is a device that forwards data that is not explicitly destined to it.</p>
+					<p>
+					There exists two forms of routing protocols:
+					<ul>
+						<li><b>Distance Vector Routing Protocol</b>: A router running distance vector protocol advertises its connected routes and learns new routes from its neighbors. The routing cost to reach a destination is calculated by means of hops between the source and destination. A router generally relies on its neighbor for best path selection, also known as “routing-by-rumors”. RIP and BGP are Distance Vector Protocols.</li>
+						<li><b>Link-State Routing Protocol</b>: This protocol acknowledges the state of a Link and advertises to its neighbors. Information about new links is learnt from peer routers. After all the routing information has been converged, the Link-State Routing Protocol uses its own algorithm to calculate the best path to all available links. OSPF and IS-IS are link state routing protocols and both of them use Dijkstra’s Shortest Path First algorithm.</li>
+					</ul>
+					Routing protocols can be divided in two categories:
+					<ul>
+						<li><b>Interior Routing Protocol</b>: Protocols in this categories are used within an autonomous system or organization to distribute routes among all routers inside its boundary. Examples: RIP, OSPF.</li>
+						<li><b>Exterior Routing Protocol</b>: An Exterior Routing Protocol distributes routing information between two different autonomous systems or organization. Examples: BGP.</li>
+					</ul>
+					</p>
+					<h4 style="color:black;text-align: center">Routing protocols</h4>
+					<dl>
+						<dt>RIPng</dt>
+						<dd>RIPng stands for Routing Information Protocol Next Generation. This is an Interior Routing Protocol and is a Distance Vector Protocol. RIPng has been upgraded to support IPv6.</dd><br>
+						<dt>OSPFv3</dt>
+						<dd>Open Shortest Path First version 3 is an Interior Routing Protocol which is modified to support IPv6. This is a Link-State Protocol and uses Djikrasta’s Shortest Path First algorithm to calculate best path to all destinations.</dd><br>
+						<dt>BGPv4</dt>
+						<dd>BGP stands for Border Gateway Protocol. It is the only open standard Exterior Gateway Protocol available. BGP is a Distance Vector protocol which takes Autonomous System as calculation metric, instead of the number of routers as Hop. BGPv4 is an upgrade of BGP to support IPv6 routing.</dd>
+					</dl>
+					<h4 style="color:black;text-align: center">Protocols Changed to Support IPv6</h4>
+					<ul>
+						<li><b>ICMPv6</b>: Internet Control Message Protocol version 6 is an upgraded implementation of ICMP to accommodate IPv6 requirements. This protocol is used for diagnostic functions, error and information message, statistical purposes. ICMPv6’s Neighbor Discovery Protocol replaces ARP and helps discover neighbor and routers on the link.</li>
+						<li><b>DHCPv6</b>: Dynamic Host Configuration Protocol version 6 is an implementation of DHCP. IPv6 enabled hosts do not require any DHCPv6 Server to acquire IP address as they can be auto-configured. Neither do they need DHCPv6 to locate DNS server because DNS can be discovered and configured via ICMPv6 Neighbor Discovery Protocol. Yet DHCPv6 Server can be used to provide these information.</li>
+						<li><b>DNS</b>: There has been no new version of DNS but it is now equipped with extensions to provide support for querying IPv6 addresses. A new AAAA (quad-A) record has been added to reply IPv6 query messages. Now the DNS can reply with both IP versions (4 & 6) without any change in the query format.</li>
+					</ul>
+					<hr>
+					<div id="nextAndPrev">
+						<a href="Mobility.html" class="previous">&laquo; Previous</a>
+						<a href="Summary.html" class="next">Next &raquo;</a>
+					</div>
+				</div><!--end of inner class -->
+				
+			</section>
+
+		<!-- Footer -->
+			<section id="ipv6TutorialFooter" >
+				<div class="copyright" style="font-size:8px">
+					&copy; Design by: Untitled Design; Informations from this webpage are from <a href="https://www.tutorialspoint.com/ipv6/index.htm" style="color:black">www.tutorialspoint.com</a>
+				</div>
+			</section>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/activebutton.js"></script>
+
+	</body>
+</html>

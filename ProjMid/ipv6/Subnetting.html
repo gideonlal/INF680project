@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>INF680 Undergrad Project</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="../index.html" class="logo"></a>
+					<nav id="nav">
+						<a href="../index.html">Home</a>
+						<a href="tutorial.html">Tutorial</a>
+						<a href="../quiz.html">Quiz</a>
+						<a href="../citation.html">Citation</a>
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+		
+		<!--side navigation-->
+		<div id="sidenav">
+		  <a class="navBtn" href="tutorial.html">Welcome</a>
+		  <a class="navBtn" href="Overviews.html">Overviews</a>
+		  <a class="navBtn" href="Features.html">Features</a>
+		  <a class="navBtn" href="Addressing_Mode.html">Addressing Mode</a>
+		  <a class="navBtn" href="Addressing_Type.html">Addressing Type</a>
+		  <a class="navBtn" href="Special_Addresses.html">Special Addresses</a>
+		  <a class="navBtn" href="Headers.html">Headers</a>
+		  <a class="navBtn" href="Communication.html">Communication</a>
+		  <a class="navBtn active" href="Subnetting.html">Subnetting</a>
+		  <a class="navBtn" href="ipv4_to_ipv6.html">IPv4 To IPv6</a>
+		  <a class="navBtn" href="Mobility.html">Mobility</a>
+		  <a class="navBtn" href="Routing.html">Routing</a>
+		  <a class="navBtn" href="Summary.html">Summary</a>
+		</div>
+
+		<!-- Main -->
+			<section id="mainTutorial" >
+				<div class="inner">
+					<header class="major special">
+						<h1 style="text-align: center">IPv6 - Subnetting</h1>
+					</header><hr>
+					<p>
+					In IPv4, addresses were created in classes. Classful IPv4 addresses clearly define the bits used for network prefixes and the bits used for hosts on that network. To subnet in IPv4, we play with the default classful netmask which allows us to borrow host bits to be used as subnet bits. This results in multiple subnets but less hosts per subnet. That is, when we borrow host bits to create a subnet, it costs us in lesser bit to be used for host addresses.<br><br>
+
+					IPv6 addresses use 128 bits to represent an address which includes bits to be used for subnetting. The second half of the address (least significant 64 bits) is always used for hosts only. Therefore, there is no compromise if we subnet the network.<br>
+						<img src="../images/subnetting.jpg" alt="Subnetting" height="80%" width="80%"/><br>
+					16 bits of subnet is equivalent to IPv4’s Class B Network. Using these subnet bits, an organization can have another 65 thousands of subnets which is by far, more than enough.
+
+					Thus routing prefix is /64 and host portion is 64 bits. We can further subnet the network beyond 16 bits of Subnet ID, by borrowing host bits; but it is recommended that 64 bits should always be used for hosts addresses because auto-configuration requires 64 bits.
+					<br><br>
+					IPv6 subnetting works on the same concept as Variable Length Subnet Masking in IPv4.
+						<br><br>
+					/48 prefix can be allocated to an organization providing it the benefit of having up to /64 subnet prefixes, which is 65535 sub-networks, each having 264 hosts. A /64 prefix can be assigned to a point-to-point connection where there are only two hosts (or IPv6 enabled devices) on a link.
+					</p>
+					
+					
+					
+					
+					<hr>
+					<div id="nextAndPrev">
+						<a href="Communication.html" class="previous">&laquo; Previous</a>
+						<a href="ipv4_to_ipv6.html" class="next">Next &raquo;</a>
+					</div>
+				</div><!--end of inner class -->
+				
+			</section>
+
+		<!-- Footer -->
+			<section id="ipv6TutorialFooter" >
+					<div class="copyright" style="font-size:8px">
+						&copy; Design by: Untitled Design; Informations from this webpage are from <a href="https://www.tutorialspoint.com/ipv6/index.htm"  style="color:black">www.tutorialspoint.com</a>
+					</div>
+			</section>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/activebutton.js"></script>
+
+	</body>
+</html>

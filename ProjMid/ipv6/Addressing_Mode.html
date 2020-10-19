@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>INF680 Undergrad Project</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="../index.html" class="logo"></a>
+					<nav id="nav">
+						<a href="../index.html">Home</a>
+						<a href="tutorial.html">Tutorial</a>
+						<a href="../quiz.html">Quiz</a>
+						<a href="../citation.html">Citation</a>
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+		
+		<!--side navigation-->
+		<div id="sidenav">
+		  <a class="navBtn" href="tutorial.html">Welcome</a>
+		  <a class="navBtn" href="Overviews.html">Overviews</a>
+		  <a class="navBtn" href="Features.html">Features</a>
+		  <a class="navBtn active" href="Addressing_Mode.html">Addressing Mode</a>
+		  <a class="navBtn" href="Addressing_Type.html">Addressing Type</a>
+		  <a class="navBtn" href="Special_Addresses.html">Special Addresses</a>
+		  <a class="navBtn" href="Headers.html">Headers</a>
+		  <a class="navBtn" href="Communication.html">Communication</a>
+		  <a class="navBtn" href="Subnetting.html">Subnetting</a>
+		  <a class="navBtn" href="ipv4_to_ipv6.html">IPv4 To IPv6</a>
+		  <a class="navBtn" href="Mobility.html">Mobility</a>
+		  <a class="navBtn" href="Routing.html">Routing</a>
+		  <a class="navBtn" href="Summary.html">Summary</a>
+		</div>
+
+		<!-- Main -->
+			<section id="mainTutorial" >
+				<div class="inner">
+					<header class="major special">
+						<h1 style="text-align: center">IPv6 Tutorial - Addressing Mode</h1>
+					</header><hr>
+					<p>
+					In computer networking, addressing mode refers to the mechanism of hosting an address on the network. IPv6 offers several types of modes by which a single host can be addressed. More than one host can be addressed at once or the host at the closest distance can be addressed.
+					</p>
+					<h4 style="color:black;text-align: center">Unicast</h4>
+					<p>In unicast mode of addressing, an IPv6 interface (host) is uniquely identified in a network segment. The IPv6 packet contains both source and destination IP addresses. A host interface is equipped with an IP address which is unique in that network segment.When a network switch or a router receives a unicast IP packet, destined to a single host, it sends out one of its outgoing interface which connects to that particular host.<br><img src="../images/unicast.jpg" alt="IPv5 version Schemes" height="50%" width="50%" class="center" /></p>
+					<h4 style="color:black;text-align: center">Multicast</h4>
+					<p>The IPv6 multicast mode is same as that of IPv4. The packet destined to multiple hosts is sent on a special multicast address. All the hosts interested in that multicast information, need to join that multicast group first. All the interfaces that joined the group receive the multicast packet and process it, while other hosts not interested in multicast packets ignore the multicast information.<br><img src="../images/multicast.jpg" alt="IPv5 version Schemes" height="50%" width="50%" class="center"/></p>
+					<h4 style="color:black;text-align: center">Anycast</h4>
+					<p>IPv6 has introduced a new type of addressing, which is called Anycast addressing. In this addressing mode, multiple interfaces (hosts) are assigned same Anycast IP address. When a host wishes to communicate with a host equipped with an Anycast IP address, it sends a Unicast message. With the help of complex routing mechanism, that Unicast message is delivered to the host closest to the Sender in terms of Routing cost.
+						<br><img src="../images/anycast.jpg" alt="IPv5 version Schemes" height="50%" width="50%" class="center"/><br>
+					Let’s take an example of TutorialPoints.com Web Servers, located in all continents. Assume that all the Web Servers are assigned a single IPv6 Anycast IP Address. Now when a user from Europe wants to reach TutorialsPoint.com the DNS points to the server that is physically located in Europe itself. If a user from India tries to reach Tutorialspoint.com, the DNS will then point to the Web Server physically located in Asia. Nearest or Closest terms are used in terms of Routing Cost.
+
+					In the above picture, when a client computer tries to reach a server, the request is forwarded to the server with the lowest Routing Cost.</p>
+					
+					<hr>
+					<div id="nextAndPrev">
+						<a href="Features.html" class="previous">&laquo; Previous</a>
+						<a href="Addressing_Type.html" class="next">Next &raquo;</a>
+					</div>
+				</div><!--end of inner class -->
+				
+			</section>
+
+		<!-- Footer -->
+			<section id="ipv6TutorialFooter" >
+					<div class="copyright" style="font-size:8px">
+						&copy; Design by: Untitled Design; Informations from this webpage are from <a href="https://www.tutorialspoint.com/ipv6/index.htm"  style="color:black">www.tutorialspoint.com</a>
+					</div>
+			</section>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/activebutton.js"></script>
+
+	</body>
+</html>

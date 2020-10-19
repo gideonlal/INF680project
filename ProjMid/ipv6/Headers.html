@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>INF680 Undergrad Project</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="../index.html" class="logo"></a>
+					<nav id="nav">
+						<a href="../index.html">Home</a>
+						<a href="tutorial.html">Tutorial</a>
+						<a href="../quiz.html">Quiz</a>
+						<a href="../citation.html">Citation</a>
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+		
+		<!--side navigation-->
+		<div id="sidenav">
+		  <a class="navBtn" href="tutorial.html">Welcome</a>
+		  <a class="navBtn" href="Overviews.html">Overviews</a>
+		  <a class="navBtn" href="Features.html">Features</a>
+		  <a class="navBtn" href="Addressing_Mode.html">Addressing Mode</a>
+		  <a class="navBtn" href="Addressing_Type.html">Addressing Type</a>
+		  <a class="navBtn" href="Special_Addresses.html">Special Addresses</a>
+		  <a class="navBtn active" href="Headers.html">Headers</a>
+		  <a class="navBtn" href="Communication.html">Communication</a>
+		  <a class="navBtn" href="Subnetting.html">Subnetting</a>
+		  <a class="navBtn" href="ipv4_to_ipv6.html">IPv4 To IPv6</a>
+		  <a class="navBtn" href="Mobility.html">Mobility</a>
+		  <a class="navBtn" href="Routing.html">Routing</a>
+		  <a class="navBtn" href="Summary.html">Summary</a>
+		</div>
+
+		<!-- Main -->
+			<section id="mainTutorial" >
+				<div class="inner">
+					<header class="major special">
+						<h1 style="text-align: center">IPv6 - Headers</h1>
+					</header><hr>
+					<p>
+					The wonder of IPv6 lies in its header. An IPv6 address is 4 times larger than IPv4, but surprisingly, the header of an IPv6 address is only 2 times larger than that of IPv4. IPv6 headers have one Fixed Header and zero or more Optional (Extension) Headers. All the necessary information that is essential for a router is kept in the Fixed Header. The Extension Header contains optional information that helps routers to understand how to handle a packet/flow.
+					</p>
+					<h4 style="color:black;text-align: center">Fixed Header</h4>
+					<img src="../images/IPv6_header.jpg" alt="IPv6 Header" height="80%" width="80%"/><br>
+					IPv6 fixed header is 40 bytes long and contains the following information.
+					<table class="headerTable">
+						<tr>
+							<th style="width:5%;">S.N.</th>
+							<th>Field &amp; Description</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td><p><b>Version</b> (4-bits): It represents the version of Internet Protocol, i.e. 0110.</p></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><p><b>Traffic Class</b> (8-bits): These 8 bits are divided into two parts. The most significant 6 bits are used for Type of Service to let the Router Known what services should be provided to this packet. The least significant 2 bits are used for Explicit Congestion Notification (ECN).</p></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td><p><b>Flow Label</b> (20-bits): This label is used to maintain the sequential flow of the packets belonging to a communication. The source labels the sequence to help the router identify that a particular packet belongs to a specific flow of information. This field helps avoid re-ordering of data packets. It is designed for streaming/real-time media.</p></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td><p><b>Payload Length</b> (16-bits): This field is used to tell the routers how much information a particular packet contains in its payload. Payload is composed of Extension Headers and Upper Layer data. With 16 bits, up to 65535 bytes can be indicated; but if the Extension Headers contain Hop-by-Hop Extension Header, then the payload may exceed 65535 bytes and this field is set to 0.</p></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td><p><b>Next Header</b> (8-bits): This field is used to indicate either the type of Extension Header, or if the Extension Header is not present then it indicates the Upper Layer PDU.  The values for the type of Upper Layer PDU are same as IPv4’s.</p></td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td><p><b>Hop Limit</b> (8-bits): This field is used to stop packet to loop in the network infinitely.  This is same as TTL in IPv4.  The value of Hop Limit field is decremented by 1 as it passes a link (router/hop).  When the field reaches 0 the packet is discarded.</p></td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td><p><b>Source Address</b> (128-bits): This field indicates the address of originator of the packet.</p></td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td><p><b>Destination Address</b> (128-bits): This field provides the address of intended recipient of the packet.</p></td>
+						</tr>
+					</table>
+					<h4 style="color:black;text-align: center">Extension Headers</h4>
+					In IPv6, the Fixed Header contains only that much information which is necessary, avoiding those information which is either not required or is rarely used. All such information is put between the Fixed Header and the Upper layer header in the form of Extension Headers. Each Extension Header is identified by a distinct value.<br>
+
+					When Extension Headers are used, IPv6 Fixed Header’s Next Header field points to the first Extension Header. If there is one more Extension Header, then the first Extension Header’s ‘Next-Header’ field points to the second one, and so on. The last Extension Header’s ‘Next-Header’ field points to the Upper Layer Header. Thus, all the headers points to the next one in a linked list manner.<br>
+
+					If the Next Header field contains the value 59, it indicates that there are no headers after this header, not even Upper Layer Header.<br>
+
+					The following Extension Headers must be supported as per RFC 2460:<br>
+					<img src="../images/extension_headers.jpg" alt="Extension Header" height="80%" width="80%"/><br>
+					The sequence of Extension Headers should be:<br>
+					<img src="../images/extension_headers_sequence.jpg" alt="Extension Header Sequence" height="80%" width="80%"/><br>
+					These headers:
+					<ul>
+						<li>1. should be processed by First and subsequent destinations.</li>
+						<li>2. should be processed by Final Destination.</li>
+					</ul>
+					Extension Headers are arranged one after another in a linked list manner, as depicted in the following diagram:<br>
+					<img src="../images/extension_header_connected.jpg" alt="Extension Header Connected" height="80%" width="80%"/>
+					<hr>
+		
+					<div id="nextAndPrev">
+						<a href="Special_Addresses.html" class="previous">&laquo; Previous</a>
+						<a href="Communication.html" class="next">Next &raquo;</a>
+					</div>
+				</div><!--end of inner class -->
+				
+			</section>
+
+		<!-- Footer -->
+			<section id="ipv6TutorialFooter" >
+					<div class="copyright" style="font-size:8px">
+						&copy; Design by: Untitled Design; Informations from this webpage are from <a href="https://www.tutorialspoint.com/ipv6/index.htm"  style="color:black">www.tutorialspoint.com</a>
+					</div>
+			</section>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/activebutton.js"></script>
+
+	</body>
+</html>
